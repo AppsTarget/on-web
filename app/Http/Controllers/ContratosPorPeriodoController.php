@@ -68,7 +68,7 @@ class ContratosPorPeriodoController extends Controller
                     tabela_precos.descr
                 )                    AS plano,
                 
-                UPPER(GROUP_CONCAT(forma_pag.descr)) AS forma_pag,
+                UPPER(GROUP_CONCAT(DISTINCT forma_pag.descr)) AS forma_pag,
 
                 SUM(
                     pedido_planos.valor *
