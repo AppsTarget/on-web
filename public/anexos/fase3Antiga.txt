@@ -1,0 +1,325 @@
+import { Component, useEffect, useState } from 'react'
+import {
+    View,
+    Text,
+    TouchableOpacity,
+    StyleSheet,
+    ScrollView,
+    Alert,
+    RefreshControl,
+    KeyboardAvoidingView,
+} from 'react-native'
+import LinhaDoTempo from './linhadotempo';
+import  Prods  from "./Prods.js";
+import { FlatList } from 'react-native-gesture-handler';
+import { TextInput } from 'react-native-paper';
+import AntDesign from 'react-native-vector-icons/AntDesign';
+import { URL_API } from "../../Config/utils";
+import Selecs from "./Selec.js";
+import { SafeAreaView } from 'react-native-safe-area-context';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
+
+
+class Fase3 extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            loading: false,
+            search: '',
+            json: [],
+            faseLinhaTempo: 3,
+            fase: 1,
+            selection: [],
+            controlColorCard: [],
+        }
+    }
+
+    // useEffect(() => {
+    //     if (this.state.json != '') {
+    //         this.refreshControl()
+    //     }
+    // }, [this.state.json])
+    componentDidMount(){
+        this.refreshList()
+        this._unsubscribe = this.props.navigation.addListener('focus', () => {
+            this.refreshList()
+        })
+    }
+   
+
+    renderProduto = ({item, index}) => {
+        var backgroundColor = "#fff";
+        return (
+            <Prods
+                produto = {item}
+                onPress = {() => {
+                    fetch(URL_API + 'Inserir/JSON?iCod='+this.props.route.params.listaId+'&sItm_cod='+item.sID+'&iItm_qtd='+item.iLocal+'')
+                    .then((response) => response.json())
+                    .then(responseData => {
+                        console.log(responseData.status)
+                        this.refreshList(this.state.search)
+                    })
+                        
+                }}
+            />
+        );
+    };
+    
+    
+   
+
+    refreshList = (sDescr) => {
+        console.log(URL_API + 'procurarItem/JSON?iCod_ldc='+this.props.route.params.listaId+'&sDescr=' + sDescr + '&sTpPsq=')
+        fetch(URL_API + 'procurarItem/JSON?iCod_ldc='+this.props.route.params.listaId+'&sDescr=' + sDescr + '&sTpPsq=')
+       
+            .then(response => response.json())
+            .then(responseData => {
+                this.setState({ json: responseData })
+            })
+    }
+ 
+    // useEffect(() => {
+    //     this.state.selection.onChangeText
+    // }, [this.state.selection])
+
+    // const refreshStatesClient = (name, fone, cpf, value) => {
+    //     if (typeof name != 'undefined') {
+
+    //         setName(name)
+    //     }
+    //     if (typeof fone != 'undefined') {
+    //         setFone(fone)
+    //     }
+    //     if (typeof cpf != 'undefined') {
+    //         setCpf(cpf)
+    //     }
+    //     if (value == 4) {
+    //         setFase(2)
+    //         setFaseLinhaTempo(5)
+    //     }
+    //     if (value == 5) {
+    //         setValue(5)
+    //     }
+    //     if (value == 2) {
+    //         setValue(2)
+    //     }
+    // }
+
+    render() {
+        const {json, search, loading, selection } = this.state
+        return(
+            <View>
+                {/* <View style={{ width: "100%", paddingLeft: '5%', paddingRight: '2%', flexDirection: 'row', justifyContent: 'space-between', height: 115, alignItems: 'center', marginBottom: 0, backgroundColor: '#fafafa', borderTopLeftRadius: 10, borderTopEndRadius: 10 }}>
+                    <Text style={{ color: '#45ab61', fontSize: 25, textAlign: 'center', width: '100%', opacity: .8, fontFamily: 'Roboto-Light' }}>{props.type}</Text>
+                    <TouchableOpacity activeOpacity={0.5} style={{ minHeight: 24, minWidth: 24, position: 'absolute', right: 30, top: '35%' }} onPress={props.close}><Text>X</Text></TouchableOpacity>
+                </View> */}
+                <LinhaDoTempo
+                    fase={this.state.faseLinhaTempo}
+                />
+
+                <View style={styles.viewInputHome}>
+                    <TextInput
+                        style={styles.inputHome}
+                        onChangeText={(text) => this.setState({ search: text })}
+                        onSubmitEditing={() => { this.refreshList(search)}}
+                        placeholder="Buscar..."
+                    />
+                    <TouchableOpacity style={styles.icoInputSearch}>
+                        <AntDesign name="search1" size={40} />
+                    </TouchableOpacity>
+                </View>
+                <TouchableOpacity style={styles.buttonCar} onPress={() => {this.props.navigation.navigate('ViewCart', {listaSelec: this.props.route.params.listaId})}}>
+                    <MaterialCommunityIcons name="cart-heart" size={35} color={"#5D5D5D"} />
+                </TouchableOpacity>
+                <FlatList
+                    refreshControl={
+                        <RefreshControl
+                            refreshing={loading}
+                            onRefresh={() => {
+                                this.refreshList(search)
+                            }}
+                        />
+                    }
+                    style={styles.listaProd}
+                    data={json}
+                    renderItem={this.renderProduto}
+                    keyExtractor={(item) => item.iCod}
+                />
+                <View style={styles.areaInfoLista}>
+                    <Text style={styles.textValorTotal}>TOTAL : </Text>
+                    <Text style={styles.textValorTotal}>QUANTIDADE : </Text> 
+                    <TouchableOpacity style={styles.buttonConfirm} onPress={() => {this.props.navigation.navigate('ViewCart', {listaSelec: this.props.route.params.listaId})}}>
+                    <Text style={styles.textConfirm}>Revisar e Avançar</Text>
+                    </TouchableOpacity>
+                </View>
+                {/* <Text style={styles.titleListSelec}>Selecionados</Text>
+                <FlatList
+                    
+                    style={styles.listaSelec}
+                    data={selection}
+                    renderItem={this.renderSelec}
+                    keyExtractor={(item) => item.iCod}
+                /> */}
+                {/* {loading ? (
+                    <View style={{ opacity: .6, position: 'absolute', height: '100%', width: '100%' }}>
+                        <View style={{ backgroundColor: '#fff', height: '100%', width: '100%', position: 'absolute' }}>
+                        </View>
+                        <View style={{ position: 'absolute', alignSelf: 'center', top: '45%' }}>
+                            <ActivityIndicator
+                                animating={true}
+                                color={bColor}
+                                size={150}
+                                style={styles.activityIndicator} />
+                        </View>
+                    </View>) : (null)} */}
+            </View>
+        )
+    }
+}
+const styles = StyleSheet.create({
+    item: {
+        backgroundColor: '#fafafa',
+        height: 100,
+        marginBottom: 7,
+        borderRadius: 10,
+
+    },
+    itemBtn: {
+        backgroundColor: '#fafafa',
+        height: 100,
+        borderRadius: 10,
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderWidth: 1,
+        borderColor: '#45ab61'
+    },
+    textBtn: {
+        textAlign: 'center',
+        fontSize: 20
+    },
+    flatListFase2: {
+        paddingHorizontal: 30,
+        paddingVertical: 15,
+        maxHeight: '100%'
+    },
+
+    viewFinalizacao: {
+        width: '100%',
+        maxHeight: '80%',
+        paddingHorizontal: 30,
+        marginTop: -60
+    },
+
+
+    itemVisualizacao: {
+        width: '100%',
+        borderRadius: 30,
+        borderWidth: 2,
+        // borderColor: '#f0f0f0',
+        paddingHorizontal: 20,
+        paddingVertical: 5,
+        backgroundColor: '#f8f8f8',
+        marginBottom: 15,
+        shadowColor: "#000000",
+        shadowOpacity: 0.8,
+        shadowRadius: 2,
+        shadowOffset: {
+            height: 2,
+            width: 0
+        }
+    },
+    labelVisualizacao: {
+
+    },
+    valueVisualizacao: {
+        fontSize: 30
+    },
+    viewInputHome: {
+        marginTop: -35,
+        flexDirection: 'row',
+        
+    },
+
+    inputHome: {
+        backgroundColor: '#fff',
+        height: 80,
+        width: '100%',
+        borderRadius: 10,
+        paddingHorizontal: 25,
+        fontSize: 25
+    },
+
+    icoInputSearch: {
+        marginTop: 18,
+        marginLeft: -60,
+        position: 'relative',
+        width: 200,
+
+    },  
+    listaProd: {
+        height: 780,
+        borderBottomWidth: 2,
+        borderBottomColor: "gray",
+    },
+    listaSelec: {
+        height: 500,
+        borderBottomWidth: 2,
+        borderBottomColor: "#fff",
+
+    },
+    titleListSelec: {
+        marginLeft: 20,
+        color: "#50bab7",
+        fontSize: 25,
+
+    },
+    areaInfoLista: {
+        width: '100%',
+        backgroundColor: '#fff',
+        height: 320,
+    }, 
+    textValorTotal: {
+        color: '#252525',
+        marginLeft: 20,
+        marginTop: 10,
+        marginBottom: 10,
+        fontSize: 25,
+    },
+    buttonConfirm: {
+        backgroundColor: '#20A403',
+        width: 250,
+        height: 70,
+        borderRadius: 100,
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        marginTop: 40,
+    },
+    textConfirm: {
+        color: '#fff',
+        fontSize: 23,
+
+    },
+    buttonCar: {
+        backgroundColor: '#fff',
+        width: 67,
+        height: 67,
+        borderRadius: 100,
+        position: 'absolute',
+        right: 45,
+        bottom: 350,
+        borderWidth: 1,
+        borderColor: '#8C8C8C',
+        zIndex: 10,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    
+})
+// Fase2.propTypes = {
+//     onChange: PropTypes.func.isRequired
+// }
+
+export default Fase3;

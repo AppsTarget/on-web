@@ -1,0 +1,13 @@
+update agenda set id_paciente = novo where id_paciente in (novo,antigo);
+update anamnese_pessoa set id_pessoa = novo where id_pessoa in (novo,antigo);
+update caixa_operadores set id_operador = novo where id_operador in (novo,antigo);
+update convenio_pessoa set id_paciente = novo where id_paciente in (novo,antigo);
+update dados_app set id_paciente = novo where id_paciente in (novo,antigo);
+update documento set id_paciente = novo where id_paciente in (novo,antigo);
+update empresas_profissional set id_profissional = novo where id_profissional in (novo,antigo);
+update grade set id_profissional = novo where id_profissional in (novo,antigo);
+update IEC_pessoa set id_paciente = novo where id_paciente in (novo,antigo);
+update old_contratos set pessoas_id = novo where pessoas_id in (novo,antigo);
+update pedido set id_paciente = novo where id_paciente in (novo,antigo);
+update evolucao set id_paciente = novo where id_paciente in (novo,antigo);
+update pessoa set lixeira = 1 where id = antigo;

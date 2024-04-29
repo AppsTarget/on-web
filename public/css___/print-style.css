@@ -1,0 +1,59 @@
+body {
+    background: #333;
+    color: #333;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    margin: 5mm;
+    overflow: hidden;
+}
+
+h5 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+}
+
+.report-header {
+    display: inline-block;
+    padding: 15px 15px 0 15px;
+    width: 100%;
+}
+
+.report-body {
+    page-break-inside: avoid;
+    width: 100%;
+    word-break: break-all;
+}
+
+.report-footer {
+    position: absolute;
+    bottom: 0;
+}
+
+@page {
+    size: A4;
+    margin: 30px;
+    
+}
+
+@media print {
+    @page {
+        size: portrait;
+        margin: 10mm;
+        /* transform: scale(10); */
+    }
+
+    body {
+        background: unset;
+        color: unset;
+        margin: 0;
+        overflow: unset;
+    }
+
+    .pagebreak {
+        page-break-after: auto;
+    }
+
+    #btn-print {
+        display: none;
+    }
+}

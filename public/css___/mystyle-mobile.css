@@ -1,0 +1,717 @@
+#loading-mobile {
+    display: none;
+}
+
+.nome-profissional-mobile {
+    display: none
+}
+
+.show-mobile {
+    display: none
+}
+
+.btn-voltar-agenda-mobile {
+    display: none
+}
+@media (max-width: 1200px) {
+    #parametros, #empresa-toolbar, .hide-agenda, #help-colors-agenda-semanal {
+        display: none !important;
+    }
+    .autocomplete-result {
+        margin-top: 11% !important;
+        margin-left: 0% !important;
+    }
+    #notificacao-navbar {
+        width: 45% !important
+    }
+}
+@media only screen and (max-width: 768px) {
+    #loading-mobile {
+        display: block !important
+    }
+    [data-id="#prt-Notificacao"]{
+        display: none
+    }
+    .divObject {
+        flex: 0 0 100% !important; 
+        max-width: 100% !important; 
+    }
+    .container-view-anexo {
+        padding: 20px;
+    }
+    #notificacao {
+        display: flex;
+    }
+    .show-mobile.buscar-pacientes {
+        display: flex
+    }
+    .btn-voltar-agenda-mobile {
+        display: block
+    }
+    .btn-toolbar.px-3.mr-auto, #buscar-paciente, 
+    .hide-agenda, #mudar-visualizacao,
+    #help-colors-agenda-semanal, .agenda-diaria-header .col-1,
+    #selecao-profissional  input, #selecao-profissional .prontuario-user-pic,
+    #selecao-profissional div, [data-id="#prt-documento"], [data-id="#prt-prescricao"],
+    [data-id="#prt-receita"] {
+        display: none
+    }
+    #table-prontuario-evolucao a {
+        font-size: 12px;
+    }
+    .resposta-iec-mobile {
+        line-height: 25px;
+    }
+    .btn-voltar-agenda-mobile {
+        background: #0f950f;
+        bottom: 76px !important;
+        padding: 0;
+    }
+    .area-filtro {
+        width: 35px !important
+    }
+    .resumo-prioritario img {
+        width: 33px !important;
+        margin-left: -34px !important;
+        left: -35px !important;
+        height: 33px !important
+    }
+    .graficos-mobile {
+        max-width: 100% !important;
+    }
+    #criarAnexoModal {
+        margin-top: 50%
+    }
+    #prt-Graficos div{
+        width: 100%
+    }
+    #table-historico-IEC-pessoa {
+        margin: 0px 0px 0px -7%;
+        width: 115% !important;
+    }
+    #questionario-iec {
+        width: 127% !important;
+        margin-left: -12% !important;
+    }
+
+    .pergunta-iec-mobile {
+        font-size: 17px;
+    }
+    .resposta-iec-mobile{
+        font-size: 12px !important;
+        padding: 3px 0px 0px 0px;
+    }
+
+    .btn-secondary-toolbar {
+        width: 40% !important;
+        /* justify-content: end !important; */
+        margin-left: 20px !important;
+    }
+    #mudar-data-visualizacao {
+        width: 150px;
+    }
+    .agenda-options {
+        max-width: 100%;
+        margin-top: 15px;
+    }
+    .btn-agenda-modal-mobile button {
+        width: 48%;
+        background: none;
+        border-radius: 5px;
+        border: 1px solid;
+        font-size: 13px;
+    }
+    .agenda-diaria-body, .agenda-diaria-body div, .agenda-diaria-body ul {
+        border: none !important;
+    }
+    .dropdown-toolbar-user {
+        width: 170px;
+        margin-left: -23%;
+        line-height: 25px;
+        margin-top: -15%;
+    }
+    .agenda-diaria-body ul li {
+        color: #000000 !important;
+        max-height: 80px !important;
+        margin: 0px 0px 10px -52px !important;
+        padding: 5px 3px 5px 16% !important;
+        z-index: 0 !important;
+    }
+    .menu-hidde {
+        background: #333 none repeat scroll 0% 0%;
+        width: 185px;
+        height: 100%;
+        box-shadow: 1px 2px 3px #ddd;
+        left: 0%;
+        transition: left 0.5s ease 0s;
+        width: 100%;
+        max-width: 85%;
+        min-width: 85%;
+        position: fixed !important;
+        z-index: 8
+    }
+    .menu-hidde::after {
+        position: fixed
+    }
+    .container-fluid.h-100.py-4.px-5{
+        padding: 0px 5px 0px 5px !important;
+    }
+    .evolucao-li p, #table-prontuario-evolucao p{
+        font-size: 12px !important;
+        margin-top: 0px;
+        margin-bottom: 5px;
+        position: relative;
+        top: 8px;
+    }
+    .rad-info-box .value, .rad-info-box .heading {
+        display: block;
+        position: relative;
+        color: #515d6e;
+        text-align: right;
+        z-index: 4;
+    }
+    .titulo-evolucao-mobile {
+        width: 100%;
+        max-width: 100%;
+        min-width: 100%;
+    }   
+    .tipo-evolucao-mobile {
+        width: 100%;
+        min-width: 100%;
+    }
+    .data-evolucao-mobile {
+        width: 100%;
+        min-width: 55%
+    }
+    #btns-cid {
+        display: none !important
+    }
+    .hora-evolucao-mobile {
+        width: 100%;
+        min-width: 45%
+    }
+    .div-id-corpo {
+        width: 100%;
+        min-width: 100%
+    }
+    #notificacao {
+        position: absolute;
+        top: 30%;
+        right: 25%;
+    }
+    .qtde-notificacao {
+        top: -2px !important;
+        right: -5px !important
+    }
+    .cid-evolucao-mobile div{
+        display: block;
+        min-width: 100%
+    }
+    #criarEvolucaoModal .row{
+        margin-right: -30%;
+        margin-left: -8%;
+    }
+    .note-toolbar {
+        display: none
+    }
+    .btn-anamnese-mobile {
+        font-size: 14px;
+        position: absolute;
+    }
+    .btn-data-anamnese-mobile {
+        font-size: 9px;
+        white-space: nowrap;
+        position: absolute;
+        top: 0px;
+        right: 9px;
+    }
+    #table-anamnese-pessoa tr{
+        font-size: 12px !important;
+        line-height: 1.5 !important;
+        
+    }
+    .acoes-anamnese-mobile {
+        position: absolute;
+        bottom: -45px;
+        width: 50%;
+        display: flex;
+        justify-content: space-around;
+        right: -5px;
+    }
+    .acoes-anamnese-mobile svg {
+        font-size: 15px
+    }
+    .especialidade-evolucao-mobile {
+        width: 100%;
+        min-width: 100%;
+    }
+    #table-prontuario-evolucao h4 {
+        font-size: 16px;
+        position: relative;
+        top: 5px;
+    }
+    /* .fa-file-download {
+        font-size: 3rem !important;
+    } */
+    .descr_iec, .btn-data {
+        font-size: 11px !important;
+        position: absolute;
+        left: 26%;
+        top: 3px;
+    }
+    .btn-data {
+        white-space: nowrap !important;
+        position: absolute !important;
+        top: 4px !important;
+        left: 10px !important;
+        font-size: 8px !important;
+    }
+    .acoes-iec {
+        position: absolute !important;
+        bottom: 0px !important;
+        right: 1px !important;
+    }
+    .anexos-titulo-resumo {
+        position: relative;
+        top: -10px;
+    }
+    
+    .acoes-iec svg {
+        font-size: 12px !important
+    }
+    .title-anexo {
+        font-size: 14px !important
+    }
+    .car-iec {
+        max-height: 45px;
+    }
+    .data-anexo {
+        font-size: 9px !important;
+        position: relative !important;
+        top: -5px !important;
+    }
+    .anexo-obs {
+        font-size: 10px !important;
+    }
+    .slick-next:before, .slick-prev:before {
+        display: none
+    }
+    .resumo-titulo, #table-prontuario-evolucao a {
+        font-size: 16px !important;
+        position: relative !important;
+        top: -12px !important;
+    }
+    .acoes-evolucao-mobile {
+        right: 5% !important;
+        width: 19% !important;
+        display: flex !important;
+        bottom: 6% !important;
+        z-index: 5;
+    }
+    .anexos-titulo-resumo {
+        font-size: 19px !important;
+    }
+    .foto-associado-prontuario {
+        max-width: 42% !important
+    }
+    .title-notificacao {
+        font-size: 12px !important
+    }
+    .data-notificacao {
+        font-size: 8px;
+        white-space: nowrap;
+        margin: -30px 0px 0px 0px;
+    }
+    .div-data-notificacao {
+        max-width: 33.6%
+    }
+    .acoes-notificacao {
+        position: absolute;
+        right: 1px;
+        bottom: 1px;
+    }
+    .hide-mobile {
+        display: none !important
+    }
+    ul.timeline {
+        list-style-type: none;
+        position: relative;
+        padding-left: 35px;
+    }
+    ul.timeline:before {
+        left: 0px;
+    }
+    .col-1 {
+        max-width: 20%
+    }
+    .row.pb-2.m-0 {
+        justify-content: end;
+    }
+    .agenda-diaria-body {
+        overflow: auto
+    }
+    .agenda-diaria-body, .agenda-semanal-body {
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+        height: calc(100% - 57px);
+    }
+    .m-0 {
+        margin: 0!important;
+        display: flex;
+        flex-wrap: nowrap;
+    }
+    .btn-criar-agendamento div {
+        z-index: 7 !important;
+        position: relative !important;
+        color: black !important;
+        font-weight: 800 !important;
+        background: #00000009 !important;
+        border-radius: 3px !important;
+        height: 25px !important;
+        line-height: 32px !important;
+    }
+    
+    /* #pesquisa-agendamentos [data-id_agendamento], .agenda-diaria-body [data-id_agendamento], #table-prontuario-agendamento [data-id_agendamento] {
+        padding: 2px 10px 2px 4px !important;
+    } */
+    .col.today {
+        display: flex;
+        justify-content: flex-end;
+        flex-direction: row-reverse;
+        padding: 3px 0px 5px 10px;
+    }
+    .sortable-columns {
+        display: none
+    }
+    #imagem-usuario {
+        cursor: pointer !important;
+        width: 60px !important;
+        border-radius: 100% !important;
+        border: 4px solid #167af6 !important;
+        margin: 0px 20px 0px 20px !important;
+        position: absolute !important;
+        top: 10px !important;
+        right: -5px !important;
+    }
+    .col.today .m-0.mb-1 {
+        color: #0881ff;
+        height: 40px;
+        width: 40px;
+        margin: 0px 0px 0px -6px !important;
+    }
+    .img-mobile { 
+        width: 100%;
+        height: 380px;
+    }
+    .col.today .m-0.mb-1 span {
+        line-height: 41px;
+        font-size: 26px;
+        height: 40px;
+        width: 40px;
+    }
+    .table-body-scroll {
+        overflow-y: auto !important;
+    }
+    .col.today .m-0.mt-1 {
+        font-size: 25px !important;
+        padding: 5px 0px 0px 15px !important;
+    }
+    #filtro-semana {
+        position: absolute !important;
+        transform: translate3d(-7px, 0px, 0px) !important;
+        top: 43px !important;
+        left: -73px !important;
+        will-change: transform !important;
+    }
+    #button-vitruviano {
+        
+        width: 50px !important;
+        height: 50px !important;
+        padding: 0 !important;
+        left: 83.5%;
+        position: fixed !important;
+        margin: 0 !important;
+        bottom: 138px !important;
+        z-index: 5 !important;
+        opacity: 1 !important;
+        background-color: white; 
+        border-radius: 50% !important;
+        border: solid 0.7px #0062cc !important;
+        box-sizing: border-box !important;
+        padding-top: 6px ;
+        padding-bottom: 6px ;
+        box-shadow:  0px 2.7px 2.7px rgba(170, 170, 170, 0.77) !important;
+        
+    }
+    #button-vitruviano:focus{
+        outline: none !important;
+    }
+    #button-vitruviano-png {
+        height: 40px !important;   
+    }
+    .modal-content.-mobile {
+        position: relative !important;
+        display:flex !important;
+        flex-direction: column !important;
+        max-width: 100% !important;
+        min-height: 100% !important;
+        min-width: 100% !important;
+        max-height: 100% !important;
+        pointer-events: auto !important;
+        background-color: #fff !important;
+        background-clip:padding-box !important;
+        border:0px !important;   
+    }
+    .modal-dialog.-mobile{    
+        max-width: 100% !important;
+        min-width: 100% !important;
+        min-height: 100% !important;
+        max-height: 100% !important;
+        height: 100% !important;
+        margin:auto !important;   
+        
+    }
+    .container-fluid.-mobile{
+        height: 100%;
+    }
+    .row.-mobile{
+        margin-top:183px !important;
+    }
+    .img-mobile{
+        min-width: 0px !important;
+    }
+    .partes.-mobile{
+        height: 380px !important;
+        align-items: center;
+        top: -405px !important;
+    }
+    .modal.-mobile {
+        margin: 0px !important;
+        padding: 0px !important;
+        width: 102% !important;
+        height: 103% !important;
+    }
+    .modal-open .modal{
+        overflow-y: scroll !important;
+        overflow-x: scroll !important;
+    }
+    .regiao-vitruviano {
+        width: 44px !important;
+        height: 41px !important;
+    }
+    #mao-direita-mov{
+        top: 27px !important;
+        left: 38px !important;
+    }
+    #mao-direita-pa{
+        top: 84px !important;
+        left: 12px !important;
+    }
+    #mao-esquerda-mov {
+        top: 27px !important;
+        right: 40px !important;
+    }
+    
+    #mao-esquerda-pa {
+        top: 84px !important;
+        right: 12px !important;
+    }
+    #cotovelo-direito-mov{
+        top: 69px !important;
+        left: 79px !important;
+    }
+    #cotovelo-direito-pa{
+        top: 112px;
+        left: 74px;
+    }
+    #cotovelo-esquerdo-mov{
+        top: 69px !important;
+        right: 80px !important;
+    }
+    #cotovelo-esquerdo-pa{
+        top: 112px !important;
+        right: 75px !important;
+    }
+    #joelho-direito-mov{
+        bottom: 72px !important;
+        left: 92px !important; 
+    }
+    #joelho-direito-pa{
+        bottom: 50px !important;
+        left: 133px  !important;
+    }
+    #joelho-esquerdo-mov{
+        bottom: 72px !important;
+        right: 92px !important;
+    }
+    #joelho-esquerdo-pa{
+        bottom: 50px !important;
+        right: 137px !important;
+    }      
+    #pe-direito-mov{
+        bottom: 1px !important;
+        left: 47px !important;
+    }
+    #pe-direito-pa{
+        bottom: -30px !important;
+        left: 138px !important;
+    }
+    #pe-esquerdo-mov{
+        bottom: 1px !important;
+        right: 45px !important;
+    }
+    #pe-esquerdo-pa{
+        bottom: -30px !important;
+        right: 121px !important;
+    }
+    .modal-confirmation-mobile {
+        margin: 0px -40px 0px -15px;
+    }
+    #cardio-pulmonar{
+        top: 103px !important;
+        right: 158px !important;
+    }
+    .grade-existe {
+        margin-bottom: 15px;
+    }
+    #coluna{
+        top: 136px !important;
+        right: 158px !important;
+    }
+    #abdomen{
+        top: 166px !important;
+        right: 158px !important;
+    }
+    #quadril{
+        top: 204px !important;
+        right: 157px !important;
+    }
+    #ombro-direito{
+        top: 93px !important;
+        left: 195px !important;
+    }
+    #ombro-esquerdo{
+        top: 93px !important;
+        right: 193px !important;
+    }
+    #cabeca{
+        top: 41px !important;
+        right: 158px !important;
+    }
+
+    #notificacao-navbar{
+        width: 100% !important;
+        padding: 0px !important;
+        z-index: 7 !important;
+        right: 0px !important;
+        
+    }
+    .div-nome-not-bar{
+        font-size: 14px !important;
+    }
+    .notific-mobile{
+        width: 240px !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis!important;
+        white-space: nowrap !important;
+    }    
+    .main-toolbar{
+        z-index:8;
+    }
+    .remover-notificacao{
+        margin-top:-24px !important;
+        align-items: flex-end!important;
+    }
+    #imagem-usuario{
+        
+        min-height: 65px !important;
+        max-height: 65px !important;
+        min-width: 65px !important;
+        max-width: 65px !important;
+    }  
+    .prontuario-user-pic{
+        position: absolute !important;
+        margin-left: 26px !important;
+        max-width: 65px !important;
+        min-width: 65px !important; 
+        max-height: 65px !important;
+        min-height: 65px !important;
+        top: 10px;
+        right: -5px;
+        margin: 0px 20px 0px 20px !important;
+    }
+    #add-not-btn {
+        bottom: 15px !important;
+        position: fixed;
+        right: 15px !important;
+    }
+    
+    #gradeBloqueioModal {
+        margin-top: 58%;
+    }
+    #gradeBloqueioModal .modal-dialog .modal-content .modal-body {
+        height: 331px
+    }
+    #obs {
+        height: 210px;
+        width: 125%;
+        margin-left: -40px;
+        font-size: 12px;
+    }
+    .agenda-diaria-body ul[data-horario], .agenda-semanal-body ul[data-horario], .btn-criar-agendamento {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        background-size: 20px 20px !important;
+        min-height: 90px;
+        margin-bottom: 5%;
+    }
+    [for="obs"] {
+        font-size: 30px;
+        margin-left: -30px;
+    }
+    [onclick="salvarGradeBloqueio()"]{
+        margin-top: -11%;
+        margin-right: -15%;
+    }
+    #info-corpo{
+        display: none !important;
+    }
+    #resume-title{
+        font-size: 18px !important;
+    }
+    .container.-scroll{
+        max-height:none !important;
+    }
+    .close.-mobile{
+        padding: 1rem 0rem;
+    }
+
+    #lista {
+        padding: 5px 0px 0px 9px !important;
+        overflow-y: hidden !important;
+        height: auto !important;
+        margin-left: 5px !important;
+    }
+    #dia-selecionado {
+        position: fixed;
+        top: 14%;
+        left: 5px
+    }
+
+    #chartsSaude {
+        display: none
+    }
+
+    .sel-dado-saude{
+        background-color: #0000000d !important;
+    }
+
+    #grafico-saude-mobile-list {
+        width: 105% !important
+    }
+    
+  }
